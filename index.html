@@ -489,7 +489,7 @@ h1{
 
 #experiences .dest.is-active{
   width:430px;
-  height:560px;
+  height:500px;
   box-shadow:
     0 36px 105px rgba(0,0,0,.75),
     0 0 55px rgba(255,20,147,.22),
@@ -614,87 +614,314 @@ h1{
   min-height:170px;
 }
 
-.phone-section{
+/* NEW CINEMATIC IMMERSIVE PREVIEW */
+
+.immersive-preview-section{
+  overflow:hidden;
+  padding:90px 5vw 70px;
+  background:
+    radial-gradient(circle at 50% 45%,rgba(255,20,147,.16),transparent 30%),
+    radial-gradient(circle at 80% 35%,rgba(123,44,255,.18),transparent 35%),
+    #030307;
+}
+
+.preview-head{
+  text-align:center;
+  margin-bottom:48px;
+}
+
+.preview-head span{
+  color:#ff1493;
+  font-size:13px;
+  letter-spacing:.32em;
+  font-weight:900;
+}
+
+.preview-head h2{
+  margin-top:18px;
+  font-size:clamp(48px,5vw,82px);
+  line-height:1;
+}
+
+.preview-head h2 b{
+  background:linear-gradient(90deg,#ff1493,#7b2cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.preview-head p{
+  margin-top:18px;
+  color:rgba(255,255,255,.72);
+  font-size:20px;
+}
+
+.preview-layout{
+  max-width:1550px;
+  margin:0 auto;
   display:grid;
-  grid-template-columns:.36fr .64fr;
-  gap:45px;
+  grid-template-columns:340px 1fr;
+  gap:40px;
   align-items:center;
 }
 
-.phone-list{
+.preview-features{
   display:grid;
-  gap:16px;
+  gap:22px;
 }
 
-.phone-item{
+.preview-feature{
+  min-height:120px;
   display:grid;
-  grid-template-columns:45px 1fr;
-  gap:14px;
+  grid-template-columns:70px 1fr 28px;
+  gap:18px;
   align-items:center;
-  padding:12px;
+  padding:24px;
+  border-radius:26px;
+  border:1px solid rgba(255,20,147,.18);
+  background:
+    radial-gradient(circle at top left,rgba(255,20,147,.12),transparent 42%),
+    rgba(255,255,255,.035);
+  backdrop-filter:blur(14px);
+  transition:.35s ease;
 }
 
-.phone-item .mini{
-  width:42px;
-  height:42px;
-  border-radius:12px;
+.preview-feature.active,
+.preview-feature:hover{
+  border-color:rgba(255,20,147,.75);
+  box-shadow:0 0 45px rgba(255,20,147,.22);
+  transform:translateX(8px);
+}
+
+.feature-icon{
+  width:62px;
+  height:62px;
+  border-radius:50%;
   display:grid;
   place-items:center;
-  background:rgba(255,20,147,.13);
-  border:1px solid rgba(255,20,147,.25);
-  color:var(--pink);
+  color:#ff1493;
+  border:1px solid rgba(255,20,147,.35);
+  background:rgba(255,20,147,.10);
+  font-weight:900;
 }
 
-/* =========================================
-   VIDEO PREVIEW SECTION
-========================================= */
-
-.preview-stage{
-  position:relative;
-  height:620px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.preview-feature h3{
+  font-size:18px;
+  margin-bottom:8px;
 }
 
-.preview-screen{
+.preview-feature p{
+  color:rgba(255,255,255,.68);
+  font-size:14px;
+  line-height:1.6;
+}
+
+.preview-feature span{
+  color:#ff1493;
+  font-size:24px;
+}
+
+.cinema-screen{
   position:relative;
-  width:100%;
-  height:520px;
-  border-radius:42px;
+  height:560px;
+  border-radius:38px;
   overflow:hidden;
-  border:10px solid #12121a;
-
+  border:1px solid rgba(255,20,147,.55);
+  transform:perspective(1200px) rotateX(2deg) rotateY(-2deg);
   box-shadow:
-    0 0 120px rgba(162,0,255,.24),
-    0 0 80px rgba(255,0,140,.18),
-    0 30px 90px rgba(0,0,0,.55);
+    0 0 70px rgba(255,20,147,.30),
+    0 0 120px rgba(123,44,255,.18),
+    0 40px 120px rgba(0,0,0,.7);
+}
+
+.cinema-screen::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top right,rgba(255,20,147,.20),transparent 32%),
+    linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.08) 55%,rgba(0,0,0,.35));
 }
 
 .preview-video{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
+  filter:saturate(1.1) contrast(1.08) brightness(.82);
 }
 
-.preview-screen::after{
-  content:"360°";
+.live-pill{
   position:absolute;
-  left:26px;
-  bottom:24px;
-  width:70px;
-  height:70px;
+  top:28px;
+  right:28px;
+  z-index:4;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 20px;
+  border-radius:999px;
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(14px);
+  font-weight:900;
+}
+
+.live-pill i{
+  width:10px;
+  height:10px;
   border-radius:50%;
+  background:#ff1493;
+  box-shadow:0 0 18px #ff1493;
+}
+
+.map-tag{
+  position:absolute;
+  z-index:4;
+  padding:12px 18px;
+  border-radius:14px;
+  background:rgba(10,8,16,.68);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(14px);
+  color:#fff;
+  font-weight:700;
+  box-shadow:0 12px 35px rgba(0,0,0,.35);
+}
+
+.tag-1{left:10%;top:24%}
+.tag-2{left:42%;top:48%}
+.tag-3{right:8%;top:38%}
+.tag-4{right:18%;bottom:24%}
+
+.video-controls{
+  position:absolute;
+  left:32px;
+  right:32px;
+  bottom:26px;
+  z-index:5;
+  display:grid;
+  grid-template-columns:52px 52px 1fr auto 72px 52px 52px;
+  gap:14px;
+  align-items:center;
+}
+
+.video-controls button{
+  height:52px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(0,0,0,.45);
+  color:#fff;
+  font-size:18px;
+  font-weight:900;
+  backdrop-filter:blur(12px);
+}
+
+.video-controls button:first-child{
+  color:#ff1493;
+  box-shadow:0 0 28px rgba(255,20,147,.35);
+}
+
+.progress-line{
+  height:4px;
+  border-radius:999px;
+  background:rgba(255,255,255,.15);
+  overflow:hidden;
+}
+
+.progress-line span{
+  display:block;
+  width:45%;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#ff1493,#7b2cff);
+  box-shadow:0 0 20px rgba(255,20,147,.65);
+}
+
+.video-controls p{
+  color:rgba(255,255,255,.86);
+  font-size:13px;
+}
+
+.drag-orbit{
+  margin:44px auto 0;
+  position:relative;
+  width:420px;
+  height:110px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:rgba(0,0,0,.55);
-  border:1px solid rgba(255,255,255,.22);
+  gap:120px;
+}
+
+.orbit-ring{
+  position:absolute;
+  width:360px;
+  height:80px;
+  border-radius:50%;
+  border:1px dashed rgba(255,20,147,.45);
+  animation:orbitSpin 10s linear infinite;
+}
+
+.orbit-center{
+  width:86px;
+  height:86px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,20,147,.75);
+  background:rgba(255,20,147,.10);
   color:#fff;
-  font-weight:800;
-  font-size:20px;
-  backdrop-filter:blur(10px);
+  font-size:22px;
+  font-weight:900;
+  box-shadow:0 0 45px rgba(255,20,147,.35);
+}
+
+.drag-orbit span{
+  color:#ff1493;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.18em;
+}
+
+@keyframes orbitSpin{
+  to{transform:rotate(360deg)}
+}
+
+@media(max-width:1100px){
+  .preview-layout{
+    grid-template-columns:1fr;
+  }
+
+  .cinema-screen{
+    height:420px;
+  }
+
+  .drag-orbit{
+    display:none;
+  }
+}
+.screen-pulse{
+  box-shadow:
+    0 0 95px rgba(255,20,147,.55),
+    0 0 150px rgba(123,44,255,.32),
+    0 45px 130px rgba(0,0,0,.75) !important;
+}
+
+.preview-feature{
+  cursor:pointer;
+}
+
+.map-tag{
+  animation:tagFloat 3.5s ease-in-out infinite;
+}
+
+.tag-2{animation-delay:.4s}
+.tag-3{animation-delay:.8s}
+.tag-4{animation-delay:1.2s}
+
+@keyframes tagFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
 }
 
 .steps{
@@ -1041,7 +1268,7 @@ h1{
   }
 
 }
-/* NEW MOVODREAM FORM */
+
 
 /* DARK MOVODREAM FORM */
 
@@ -1494,16 +1721,17 @@ h1{
   }
 
 }
-/* NEW PREMIUM REVIEW SECTION */
+
+/* LIGHT PREMIUM REVIEW SECTION */
 
 .feedback-section{
   overflow:hidden;
   min-height:calc(100vh - 72px);
   padding:90px 0 70px;
   background:
-    radial-gradient(circle at 50% 45%,rgba(255,20,147,.18),transparent 28%),
-    radial-gradient(circle at 70% 35%,rgba(123,44,255,.16),transparent 30%),
-    #030307;
+    radial-gradient(circle at 50% 38%,rgba(255,20,147,.16),transparent 26%),
+    radial-gradient(circle at 70% 55%,rgba(123,44,255,.12),transparent 30%),
+    linear-gradient(180deg,#fff7fc,#f8f4ff 55%,#fff);
 }
 
 .feedback-head{
@@ -1524,6 +1752,7 @@ h1{
   margin-top:14px;
   font-size:clamp(46px,5vw,78px);
   line-height:.92;
+  color:#140b1f;
 }
 
 .feedback-head h2 b{
@@ -1534,7 +1763,7 @@ h1{
 
 .feedback-head p{
   margin-top:18px;
-  color:rgba(255,255,255,.62);
+  color:rgba(20,11,31,.62);
   font-size:16px;
   line-height:1.5;
 }
@@ -1556,7 +1785,7 @@ h1{
   height:38px;
   border-radius:50%;
   object-fit:cover;
-  border:2px solid #030307;
+  border:2px solid #fff;
   margin-left:-10px;
 }
 
@@ -1565,14 +1794,14 @@ h1{
 }
 
 .review-stars{
-  color:#ffd23c;
+  color:#ffb800;
   letter-spacing:4px;
   font-size:18px;
 }
 
 .review-meta p{
   margin:0;
-  color:rgba(255,255,255,.72);
+  color:rgba(20,11,31,.68);
 }
 
 .review-carousel{
@@ -1601,37 +1830,31 @@ h1{
   padding:34px;
   position:relative;
   overflow:hidden;
-
   background:
-    radial-gradient(circle at top left,rgba(255,20,147,.12),transparent 42%),
-    linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025));
-
-  border:1px solid rgba(255,255,255,.10);
-  box-shadow:0 35px 100px rgba(0,0,0,.55);
+    radial-gradient(circle at top left,rgba(255,20,147,.10),transparent 42%),
+    rgba(255,255,255,.72);
+  border:1px solid rgba(20,11,31,.10);
+  box-shadow:0 35px 90px rgba(67,34,201,.10);
   transition:.55s ease;
 }
 
 .review-card.active{
   width:520px;
   min-height:360px;
-
-  border:1px solid rgba(255,20,147,.65);
-
+  border:1px solid rgba(255,20,147,.48);
   background:
-    radial-gradient(circle at 80% 0%,rgba(123,44,255,.26),transparent 35%),
-    radial-gradient(circle at 0% 0%,rgba(255,20,147,.25),transparent 40%),
-    linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
-
+    radial-gradient(circle at 80% 0%,rgba(123,44,255,.14),transparent 35%),
+    radial-gradient(circle at 0% 0%,rgba(255,20,147,.18),transparent 40%),
+    linear-gradient(135deg,rgba(255,255,255,.96),rgba(255,255,255,.78));
   box-shadow:
-    0 0 45px rgba(255,20,147,.38),
-    0 0 90px rgba(123,44,255,.20),
-    0 38px 120px rgba(0,0,0,.75);
-
+    0 0 45px rgba(255,20,147,.18),
+    0 0 90px rgba(123,44,255,.12),
+    0 38px 110px rgba(67,34,201,.18);
   transform:scale(1.04);
 }
 
 .review-card.side{
-  opacity:.55;
+  opacity:.42;
   transform:rotateY(8deg) scale(.92);
 }
 
@@ -1648,7 +1871,7 @@ h1{
 
 .review-card p{
   margin-top:18px;
-  color:#fff;
+  color:#190f22;
   font-size:22px;
   line-height:1.55;
   letter-spacing:-.04em;
@@ -1661,17 +1884,18 @@ h1{
 .review-user{
   margin-top:48px;
   padding-top:24px;
-  border-top:1px solid rgba(255,255,255,.10);
+  border-top:1px solid rgba(20,11,31,.12);
 }
 
 .review-user h3{
   font-size:18px;
+  color:#140b1f;
 }
 
 .review-user span{
   display:block;
   margin-top:6px;
-  color:rgba(255,255,255,.55);
+  color:rgba(20,11,31,.55);
   font-size:13px;
 }
 
@@ -1682,7 +1906,7 @@ h1{
   padding:9px 16px;
   border-radius:999px;
   color:#ff1493;
-  border:1px solid rgba(255,20,147,.35);
+  border:1px solid rgba(255,20,147,.28);
   background:rgba(255,20,147,.08);
   font-size:12px;
   font-weight:800;
@@ -1694,64 +1918,16 @@ h1{
   width:54px;
   height:54px;
   border-radius:50%;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
+  border:1px solid rgba(20,11,31,.12);
+  background:rgba(255,255,255,.75);
   color:#ff1493;
   font-size:26px;
   cursor:pointer;
+  box-shadow:0 18px 45px rgba(67,34,201,.12);
 }
 
 .review-arrow.left{left:7vw}
 .review-arrow.right{right:7vw}
-
-.review-progress{
-  width:230px;
-  height:6px;
-  border-radius:999px;
-  background:rgba(255,255,255,.10);
-  margin:46px auto 0;
-  overflow:hidden;
-}
-
-.review-progress span{
-  display:block;
-  width:45%;
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,#ff1493,#7b2cff);
-  box-shadow:0 0 22px rgba(255,20,147,.55);
-}
-
-.review-bottom{
-  margin-top:28px;
-  text-align:center;
-  color:rgba(255,255,255,.55);
-  letter-spacing:.28em;
-  font-size:12px;
-}
-
-.review-bottom b{
-  color:#ff1493;
-}
-
-@media(max-width:900px){
-  .review-track{
-    overflow-x:auto;
-    justify-content:flex-start;
-    padding:0 5vw;
-  }
-
-  .review-card,
-  .review-card.active{
-    min-width:85vw;
-    width:85vw;
-    transform:none;
-  }
-
-  .review-arrow{
-    display:none;
-  }
-}
 
 #helloText{
   transition:.45s ease;
@@ -1983,74 +2159,74 @@ h1{
 
 
 
+<section class="section reveal immersive-preview-section" id="preview">
 
-<section class="section reveal">
-
-  <div class="section-head">
-    <h2>See Amritsar Before You Go</h2>
+  <div class="preview-head">
+    <span>→ IMMERSIVE PREVIEW ←</span>
+    <h2>See <b>Amritsar</b> Before You Go</h2>
+    <p>Explore the city in immersive 360° and plan your perfect journey.</p>
   </div>
 
-  <div class="phone-section">
+  <div class="preview-layout">
 
-    <!-- LEFT CONTENT -->
-    <div class="phone-list">
+    <div class="preview-features">
 
-      <div class="phone-item">
-        <div class="mini">⌾</div>
+      <div class="preview-feature active">
+        <div class="feature-icon">360°</div>
         <div>
           <h3>360° Previews</h3>
           <p>Explore top places in immersive 360.</p>
         </div>
+        <span>→</span>
       </div>
 
-      <div class="phone-item">
-        <div class="mini">✣</div>
+      <div class="preview-feature">
+        <div class="feature-icon">□</div>
         <div>
           <h3>AR Walkthroughs</h3>
           <p>Walk through locations with AR.</p>
         </div>
+        <span>→</span>
       </div>
 
-      <div class="phone-item">
-        <div class="mini">⌖</div>
+      <div class="preview-feature">
+        <div class="feature-icon">⌖</div>
         <div>
           <h3>Route Previews</h3>
-          <p>See your journey before you travel.</p>
+          <p>See your journey before travel.</p>
         </div>
+        <span>→</span>
       </div>
 
-      <div class="phone-item">
-        <div class="mini">♨</div>
+      <div class="preview-feature">
+        <div class="feature-icon">♨</div>
         <div>
           <h3>Food Experiences</h3>
           <p>Preview iconic food spots.</p>
         </div>
+        <span>→</span>
       </div>
 
     </div>
 
-    <!-- RIGHT VIDEO -->
-    <div class="preview-stage">
+    <div class="cinema-screen">
 
-      <div class="preview-screen">
+      <video autoplay muted loop playsinline class="preview-video">
+        <source src="amritsar.mp4" type="video/mp4">
+      </video>
 
-        <video
-          autoplay
-          muted
-          loop
-          playsinline
-          class="preview-video"
-        >
-          <source src="amritsar.mp4" type="video/mp4">
-        </video>
+      <div class="live-pill"><i></i> LIVE 360°</div>
 
-      </div>
+      
 
     </div>
 
   </div>
 
+  
+
 </section>
+
 
 <section class="section reveal trip-form-section" id="works">
   <div class="contact-wrap">
@@ -2514,6 +2690,40 @@ setInterval(() => {
   }, 450);
 
 }, 1800);
+
+const previewFeatures = document.querySelectorAll(".preview-feature");
+const cinemaScreen = document.querySelector(".cinema-screen");
+const livePill = document.querySelector(".live-pill");
+const progressFill = document.querySelector(".progress-line span");
+
+previewFeatures.forEach((feature, index) => {
+  feature.addEventListener("click", () => {
+    previewFeatures.forEach(f => f.classList.remove("active"));
+    feature.classList.add("active");
+
+    cinemaScreen.classList.add("screen-pulse");
+
+    setTimeout(() => {
+      cinemaScreen.classList.remove("screen-pulse");
+    }, 600);
+
+    progressFill.style.width = `${35 + index * 15}%`;
+  });
+});
+
+cinemaScreen.addEventListener("mousemove", e => {
+  const rect = cinemaScreen.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width - 0.5;
+  const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+  cinemaScreen.style.transform =
+    `perspective(1200px) rotateX(${y * -5}deg) rotateY(${x * 6}deg)`;
+});
+
+cinemaScreen.addEventListener("mouseleave", () => {
+  cinemaScreen.style.transform =
+    "perspective(1200px) rotateX(2deg) rotateY(-2deg)";
+});
 
 </script>
 
