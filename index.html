@@ -1090,7 +1090,7 @@ h1{
 
 .contact-left h2{
   font-size:clamp(90px,10vw,170px);
-  line-height:.82;
+  line-height:1.18;
   letter-spacing:-0.08em;
 
   background:linear-gradient(90deg,#ff1493,#ff4cc6,#7b2cff);
@@ -1494,231 +1494,283 @@ h1{
   }
 
 }
-/* feedback */
+/* NEW PREMIUM REVIEW SECTION */
+
 .feedback-section{
   overflow:hidden;
   min-height:calc(100vh - 72px);
-  justify-content:center;
+  padding:90px 0 70px;
   background:
-    radial-gradient(circle at center,rgba(255,20,147,.10),transparent 35%),
-    radial-gradient(circle at top,rgba(123,44,255,.14),transparent 40%),
+    radial-gradient(circle at 50% 45%,rgba(255,20,147,.18),transparent 28%),
+    radial-gradient(circle at 70% 35%,rgba(123,44,255,.16),transparent 30%),
     #030307;
 }
 
-.feedback-section::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:90px 90px;
-  opacity:.35;
-  pointer-events:none;
+.feedback-head{
+  text-align:center;
+  position:relative;
+  z-index:3;
+  margin-bottom:46px;
 }
 
-.feedback-avatars{
+.feedback-head span{
+  color:#ff1493;
+  font-size:13px;
+  letter-spacing:.25em;
+  font-weight:900;
+}
+
+.feedback-head h2{
+  margin-top:14px;
+  font-size:clamp(46px,5vw,78px);
+  line-height:.92;
+}
+
+.feedback-head h2 b{
+  background:linear-gradient(90deg,#ff1493,#7b2cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.feedback-head p{
+  margin-top:18px;
+  color:rgba(255,255,255,.62);
+  font-size:16px;
+  line-height:1.5;
+}
+
+.review-meta{
+  margin-top:24px;
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:14px;
-  margin-bottom:70px;
+  gap:22px;
 }
 
-.feedback-avatars img{
-  width:66px;
-  height:66px;
+.review-faces{
+  display:flex;
+}
+
+.review-faces img{
+  width:38px;
+  height:38px;
   border-radius:50%;
   object-fit:cover;
-  border:2px solid rgba(255,255,255,.16);
-  box-shadow:0 0 30px rgba(255,20,147,.18);
+  border:2px solid #030307;
+  margin-left:-10px;
 }
 
-.feedback-slider{
+.review-faces img:first-child{
+  margin-left:0;
+}
+
+.review-stars{
+  color:#ffd23c;
+  letter-spacing:4px;
+  font-size:18px;
+}
+
+.review-meta p{
+  margin:0;
+  color:rgba(255,255,255,.72);
+}
+
+.review-carousel{
+  position:relative;
   width:100vw;
   margin-left:50%;
   transform:translateX(-50%);
-  overflow:hidden;
-}
-
-.feedback-track{
   display:flex;
-  gap:42px;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
+  perspective:1400px;
 }
 
-.feedback-card{
-  width:520px;
-  min-height:260px;
-  border-radius:30px;
-  border:1px solid rgba(255,255,255,.13);
-  background:rgba(255,255,255,.045);
-  backdrop-filter:blur(18px);
-  padding:42px;
-  box-shadow:0 30px 90px rgba(0,0,0,.45);
+.review-track{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:36px;
+  width:max-content;
 }
 
-.feedback-card.active{
-  width:680px;
-  min-height:320px;
+.review-card{
+  width:390px;
+  min-height:285px;
+  border-radius:26px;
+  padding:34px;
+  position:relative;
+  overflow:hidden;
+
   background:
-    radial-gradient(circle at top left,rgba(255,20,147,.13),transparent 40%),
-    rgba(255,255,255,.055);
+    radial-gradient(circle at top left,rgba(255,20,147,.12),transparent 42%),
+    linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025));
+
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 35px 100px rgba(0,0,0,.55);
+  transition:.55s ease;
 }
 
-.feedback-card.faded{
-  opacity:.38;
-  filter:blur(.3px);
+.review-card.active{
+  width:520px;
+  min-height:360px;
+
+  border:1px solid rgba(255,20,147,.65);
+
+  background:
+    radial-gradient(circle at 80% 0%,rgba(123,44,255,.26),transparent 35%),
+    radial-gradient(circle at 0% 0%,rgba(255,20,147,.25),transparent 40%),
+    linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
+
+  box-shadow:
+    0 0 45px rgba(255,20,147,.38),
+    0 0 90px rgba(123,44,255,.20),
+    0 38px 120px rgba(0,0,0,.75);
+
+  transform:scale(1.04);
 }
 
-.feedback-card p{
-  font-size:30px;
-  line-height:1.45;
+.review-card.side{
+  opacity:.55;
+  transform:rotateY(8deg) scale(.92);
+}
+
+.review-card.side:nth-child(3){
+  transform:rotateY(-8deg) scale(.92);
+}
+
+.quote{
+  font-size:74px;
+  line-height:.7;
+  color:#ff1493;
+  font-weight:900;
+}
+
+.review-card p{
+  margin-top:18px;
   color:#fff;
+  font-size:22px;
+  line-height:1.55;
   letter-spacing:-.04em;
 }
 
-.feedback-card h3{
-  margin-top:52px;
-  font-size:24px;
-  color:#fff;
+.review-card.active p{
+  font-size:27px;
 }
 
-.feedback-card span{
+.review-user{
+  margin-top:48px;
+  padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.10);
+}
+
+.review-user h3{
+  font-size:18px;
+}
+
+.review-user span{
   display:block;
   margin-top:6px;
-  color:rgba(255,255,255,.48);
+  color:rgba(255,255,255,.55);
+  font-size:13px;
 }
 
-.feedback-author{
-  margin-top:52px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.review-card small{
+  position:absolute;
+  right:28px;
+  bottom:28px;
+  padding:9px 16px;
+  border-radius:999px;
+  color:#ff1493;
+  border:1px solid rgba(255,20,147,.35);
+  background:rgba(255,20,147,.08);
+  font-size:12px;
+  font-weight:800;
 }
 
-.feedback-author img{
-  width:74px;
-  height:74px;
+.review-arrow{
+  position:absolute;
+  z-index:5;
+  width:54px;
+  height:54px;
   border-radius:50%;
-  object-fit:cover;
-}
-
-@media(max-width:900px){
-  .feedback-track{
-    justify-content:flex-start;
-    overflow-x:auto;
-    padding:0 5vw;
-  }
-
-  .feedback-card,
-  .feedback-card.active{
-    min-width:85vw;
-    width:85vw;
-  }
-
-  .feedback-card p{
-    font-size:22px;
-  }
-}
-/* FEEDBACK ANIMATION */
-
-.feedback-avatars img{
-  animation:avatarFloat 3.5s ease-in-out infinite;
-}
-
-.feedback-avatars img:nth-child(2){animation-delay:.2s}
-.feedback-avatars img:nth-child(3){animation-delay:.4s}
-.feedback-avatars img:nth-child(4){animation-delay:.6s}
-.feedback-avatars img:nth-child(5){animation-delay:.8s}
-
-@keyframes avatarFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-12px);
-  }
-}
-
-.feedback-card.active{
-  animation:activeGlow 4s ease-in-out infinite;
-}
-
-@keyframes activeGlow{
-  0%,100%{
-    box-shadow:
-      0 30px 90px rgba(0,0,0,.45),
-      0 0 0 rgba(255,20,147,0);
-  }
-  50%{
-    box-shadow:
-      0 35px 110px rgba(0,0,0,.55),
-      0 0 65px rgba(255,20,147,.22);
-  }
-}
-
-.feedback-slider{
-  overflow:hidden;
-  width:100%;
-  position:relative;
-}
-
-.feedback-track{
-  display:flex;
-  gap:42px;
-  align-items:center;
-  width:max-content;
-  animation:marqueeFeedback 26s linear infinite;
-}
-
-.feedback-slider:hover .feedback-track{
-  animation-play-state:paused;
-}
-
-@keyframes marqueeFeedback{
-  0%{
-    transform:translateX(0);
-  }
-
-  100%{
-    transform:translateX(-40%);
-  }
-}
-
-.feedback-card{
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  color:#ff1493;
+  font-size:26px;
   cursor:pointer;
 }
 
-.feedback-card{
+.review-arrow.left{left:7vw}
+.review-arrow.right{right:7vw}
+
+.review-progress{
+  width:230px;
+  height:6px;
+  border-radius:999px;
+  background:rgba(255,255,255,.10);
+  margin:46px auto 0;
+  overflow:hidden;
+}
+
+.review-progress span{
+  display:block;
+  width:45%;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#ff1493,#7b2cff);
+  box-shadow:0 0 22px rgba(255,20,147,.55);
+}
+
+.review-bottom{
+  margin-top:28px;
+  text-align:center;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.28em;
+  font-size:12px;
+}
+
+.review-bottom b{
+  color:#ff1493;
+}
+
+@media(max-width:900px){
+  .review-track{
+    overflow-x:auto;
+    justify-content:flex-start;
+    padding:0 5vw;
+  }
+
+  .review-card,
+  .review-card.active{
+    min-width:85vw;
+    width:85vw;
+    transform:none;
+  }
+
+  .review-arrow{
+    display:none;
+  }
+}
+
+#helloText{
   transition:.45s ease;
 }
 
-.feedback-card:hover{
-  transform:translateY(-12px) scale(1.02);
-  border-color:rgba(255,20,147,.35);
+#helloText.changing{
+  opacity:0;
+  transform:translateY(18px) scale(.96);
+}
+#helloText{
+  font-size:clamp(54px,5.8vw,105px);
+  line-height:1.18;
+  padding-top:18px;
+  padding-bottom:10px;
+  overflow:visible;
+  white-space:nowrap;
+  transition:.45s ease;
 }
 
-.feedback-section::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 50% 45%,rgba(255,20,147,.16),transparent 32%),
-    radial-gradient(circle at 50% 65%,rgba(123,44,255,.12),transparent 36%);
-  pointer-events:none;
-  animation:feedbackAura 5s ease-in-out infinite;
-}
-
-@keyframes feedbackAura{
-  0%,100%{
-    opacity:.45;
-  }
-  50%{
-    opacity:.9;
-  }
-}
 
 </style>
 </head>
@@ -1817,8 +1869,7 @@ h1{
 
         <div class="mistake-content">
           <p>
-            The Palki Sahib procession at 4 AM is the most spiritual
-            moment at the Golden Temple — and most tourists sleep through it.
+            Most tourists visit the Golden Temple during the day. Few experience the sacred Amrit Vela ceremony before sunrise.
           </p>
 
           <div class="mistake-pill">
@@ -1897,7 +1948,7 @@ h1{
         </h3>
 
         <p id="previewDesc">
-          The Palki Sahib procession at 4 AM is the most spiritual
+          The Palki Sahib procession is the most spiritual
           moment at the Golden Temple.
         </p>
 
@@ -2007,7 +2058,7 @@ h1{
     <div class="contact-left">
       <img src="logo.webp" class="contact-logo" alt="Movodream">
 
-      <h2>HOLA!</h2>
+      <h2 id="helloText">HOLA!</h2>
 
       <p>
         Ready to turn your Amritsar trip into a reality? Tell us your mood,
@@ -2045,79 +2096,61 @@ h1{
 </section>
 
 <section class="section reveal feedback-section">
-  <div class="section-head">
-    <h2>Real Experiences, Real Happiness</h2>
-  </div>
+  <div class="feedback-head">
+    <span>TRAVELER STORIES</span>
+    <h2>Real Experiences,<br>Real <b>Happiness</b></h2>
+    <p>Thousands of travelers explored Amritsar with Movodream.<br>Here’s what they loved.</p>
 
-  <div class="feedback-avatars">
-    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=200&auto=format&fit=crop">
-    <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=200&auto=format&fit=crop">
-    <img src="https://images.unsplash.com/photo-1542178243-bc20204b769f?q=80&w=200&auto=format&fit=crop">
-    <img src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?q=80&w=200&auto=format&fit=crop">
-    <img src="https://plus.unsplash.com/premium_photo-1682096108814-b53765f48ba5">
-  </div>
-
-  <div class="feedback-slider">
-    <div class="feedback-track" id="feedbackTrack">
-
-  <div class="feedback-card faded">
-    <p>
-      Movodream made our Amritsar trip smooth,
-      local and memorable.
-    </p>
-
-    <h3>Priya Mehta</h3>
-    <span>Mumbai</span>
-  </div>
-
-  <div class="feedback-card active">
-    <p>
-      From Golden Temple timing to hidden
-      food spots, everything felt perfectly planned.
-    </p>
-
-    <div class="feedback-author">
-      <div>
-        <h3>Ankit Sharma</h3>
-        <span>Delhi</span>
+    <div class="review-meta">
+      <div class="review-faces">
+        <img src="https://plus.unsplash.com/premium_photo-1682096108814-b53765f48ba5">
+        <img src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?q=80&w=200&auto=format&fit=crop">
+        <img src="https://images.unsplash.com/photo-1542178243-bc20204b769f?q=80&w=200&auto=format&fit=crop">
       </div>
-
+      <div class="review-stars">★★★★★</div>
+      <p><b>4.9/5</b> (2.3K+ Reviews)</p>
     </div>
   </div>
 
-  <div class="feedback-card faded">
-    <p>
-      The local insights were super helpful.
-      It felt like travelling with a friend.
-    </p>
+  <div class="review-carousel">
+    <button class="review-arrow left">←</button>
 
-    <h3>Rohan Verma</h3>
-    <span>Bangalore</span>
+    <div class="review-track" id="reviewTrack">
+      <div class="review-card side">
+        <div class="quote">“</div>
+        <p>The local insights were super helpful. It felt like travelling with a friend.</p>
+        <div class="review-user">
+          <h3>Rohan Verma</h3>
+          <span>📍 Bangalore</span>
+        </div>
+        <small>✦ Heritage Walk</small>
+      </div>
+
+      <div class="review-card active">
+        <div class="quote">“</div>
+        <p>From Golden Temple timing to hidden food spots, everything felt perfectly planned.</p>
+        <div class="review-user">
+          <h3>Ankit Sharma</h3>
+          <span>📍 Delhi</span>
+        </div>
+        <small>✦ Golden Temple Trail</small>
+      </div>
+
+      <div class="review-card side">
+        <div class="quote">“</div>
+        <p>Food recommendations were amazing. We tried places we would never find alone!</p>
+        <div class="review-user">
+          <h3>Neha Kaur</h3>
+          <span>📍 Chandigarh</span>
+        </div>
+        <small>✦ Food Trails</small>
+      </div>
+    </div>
+
+    <button class="review-arrow right">→</button>
   </div>
 
-  <div class="feedback-card faded">
-    <p>
-      Food recommendations were amazing.
-      We discovered places we would never find ourselves.
-    </p>
-
-    <h3>Neha Kaur</h3>
-    <span>Chandigarh</span>
-  </div>
-
-  <div class="feedback-card faded">
-    <p>
-      The itinerary perfectly balanced spirituality,
-      shopping and luxury stays.
-    </p>
-
-    <h3>Arjun Singh</h3>
-    <span>Jaipur</span>
-  </div>
-
-</div>
-  </div>
-</section>
+  </section>
 
 <footer class="footer">
 
@@ -2239,10 +2272,10 @@ function renderDestinations(){
 
     card.classList.toggle("is-active",offset===0);
     card.style.setProperty("--x",`${clamped*310}px`);
-card.style.setProperty("--z",`${offset===0?180:-abs*130}px`);
-card.style.setProperty("--ry",`${clamped*-18}deg`);
+    card.style.setProperty("--z",`${offset===0?180:-abs*130}px`);
+    card.style.setProperty("--ry",`${clamped*-18}deg`);
     card.style.setProperty("--rx","0deg");
-card.style.setProperty("--scale",`${offset===0?1.08:Math.max(.72,1-abs*.1)}`);
+    card.style.setProperty("--scale",`${offset===0?1.08:Math.max(.72,1-abs*.1)}`);
     card.style.setProperty("--opacity",`${abs>3?0:1-abs*.12}`);
     card.style.setProperty("--zIndex",`${20-abs}`);
     card.style.filter=abs>2?"blur(1.5px)":"none";
@@ -2299,7 +2332,7 @@ const mistakeData = [
 
 {
 title:"Missing the Pre-Dawn Ceremony",
-desc:"The Palki Sahib procession at 4 AM is the most spiritual moment at the Golden Temple.",
+desc:"The Palki Sahib procession is the most spiritual moment at the Golden Temple.",
 fix:"We schedule wake-up reminders and build this directly into Day 1.",
 img:"palki.jpg"
 },
@@ -2354,24 +2387,133 @@ previewFix.innerHTML = mistakeData[index].fix;
 
 });
 
-const feedbackCards = document.querySelectorAll(".feedback-card");
+const reviewCards = [
+  {
+    quote:"The local insights were super helpful. It felt like travelling with a friend.",
+    name:"Rohan Verma",
+    city:"Bangalore",
+    tag:"✦ Heritage Walk"
+  },
+  {
+    quote:"From Golden Temple timing to hidden food spots, everything felt perfectly planned.",
+    name:"Ankit Sharma",
+    city:"Delhi",
+    tag:"✦ Golden Temple Trail"
+  },
+  {
+    quote:"Food recommendations were amazing. We tried places we would never find alone!",
+    name:"Neha Kaur",
+    city:"Chandigarh",
+    tag:"✦ Food Trails"
+  },
+  {
+    quote:"Movodream made our Amritsar trip smooth, local and memorable.",
+    name:"Priya Mehta",
+    city:"Mumbai",
+    tag:"✦ Smart Planning"
+  },
+  {
+    quote:"The itinerary balanced spirituality, food, shopping and luxury stays beautifully.",
+    name:"Arjun Singh",
+    city:"Jaipur",
+    tag:"✦ Luxury Escape"
+  }
+];
 
-feedbackCards.forEach(card => {
+let reviewIndex = 1;
+let reviewTimer;
 
-  card.addEventListener("click", () => {
+const reviewTrack = document.getElementById("reviewTrack");
+const leftArrow = document.querySelector(".review-arrow.left");
+const rightArrow = document.querySelector(".review-arrow.right");
 
-    feedbackCards.forEach(c => {
-      c.classList.remove("active");
-      c.classList.add("faded");
+function createReviewCard(data, type){
+  return `
+    <div class="review-card ${type}">
+      <div class="quote">“</div>
+
+      <p>${data.quote}</p>
+
+      <div class="review-user">
+        <h3>${data.name}</h3>
+        <span>📍 ${data.city}</span>
+      </div>
+
+      <small>${data.tag}</small>
+    </div>
+  `;
+}
+
+function renderReviews(){
+  const leftIndex = (reviewIndex - 1 + reviewCards.length) % reviewCards.length;
+  const rightIndex = (reviewIndex + 1) % reviewCards.length;
+
+  reviewTrack.innerHTML =
+    createReviewCard(reviewCards[leftIndex], "side") +
+    createReviewCard(reviewCards[reviewIndex], "active") +
+    createReviewCard(reviewCards[rightIndex], "side");
+
+  document.querySelectorAll(".review-card").forEach((card, i) => {
+    card.addEventListener("click", () => {
+      if(i === 0) prevReview();
+      if(i === 2) nextReview();
     });
-
-    card.classList.remove("faded");
-    card.classList.add("active");
-
   });
+}
 
-});
+function nextReview(){
+  reviewIndex = (reviewIndex + 1) % reviewCards.length;
+  renderReviews();
+  restartReviewAuto();
+}
 
+function prevReview(){
+  reviewIndex = (reviewIndex - 1 + reviewCards.length) % reviewCards.length;
+  renderReviews();
+  restartReviewAuto();
+}
+
+function startReviewAuto(){
+  reviewTimer = setInterval(() => {
+    reviewIndex = (reviewIndex + 1) % reviewCards.length;
+    renderReviews();
+  }, 3500);
+}
+
+function restartReviewAuto(){
+  clearInterval(reviewTimer);
+  startReviewAuto();
+}
+
+rightArrow.addEventListener("click", nextReview);
+leftArrow.addEventListener("click", prevReview);
+
+renderReviews();
+startReviewAuto();
+
+const helloWords = [
+  "HOLA!",
+  "HELLO!",
+  "ਸਤ ਸ੍ਰੀ ਅਕਾਲ!",
+  "नमस्ते!",
+  "BONJOUR!",
+  "CIAO!",
+  "HALLO!"
+];
+
+const helloText = document.getElementById("helloText");
+let helloIndex = 0;
+
+setInterval(() => {
+  helloText.classList.add("changing");
+
+  setTimeout(() => {
+    helloIndex = (helloIndex + 1) % helloWords.length;
+    helloText.textContent = helloWords[helloIndex];
+    helloText.classList.remove("changing");
+  }, 450);
+
+}, 1800);
 
 </script>
 
