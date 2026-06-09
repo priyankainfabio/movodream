@@ -1720,6 +1720,9 @@ h1{
   .footer-right{
     align-items:flex-start;
   }
+  .footer-note{
+  text-align:left;
+}
 
 }
 
@@ -2312,7 +2315,57 @@ h1{
   }
 }
 
+.footer-description{
+  max-width:420px;
+  color:rgba(255,255,255,.58);
+  line-height:1.9;
+  font-size:16px;
+}
 
+.footer-column{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.footer-column h4,
+.footer-right h4{
+  color:#fff;
+  font-size:15px;
+  letter-spacing:.16em;
+  margin-bottom:12px;
+}
+
+.footer-column a{
+  color:rgba(255,255,255,.62);
+}
+
+.footer-note{
+  max-width:260px;
+  color:rgba(255,255,255,.5);
+  line-height:1.7;
+  font-size:14px;
+  text-align:right;
+}
+
+.footer-cta{
+  width:220px;
+  height:58px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(90deg,#ff1493,#7b2cff);
+  color:#fff;
+  font-weight:800;
+  box-shadow:0 0 40px rgba(255,20,147,.25);
+  transition:.35s ease;
+}
+
+.footer-cta:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 55px rgba(255,20,147,.45);
+}
 </style>
 </head>
 
@@ -2325,12 +2378,12 @@ h1{
 
   <div class="nav-links">
     <a href="#experiences">Experiences</a>
-    <a href="#features">Smart Features</a>
+    <a href="#plans">Smart Features</a>
     <a href="#works">How It Works</a>
-    <a href="#about">About Us</a>
+    <a href="#reviews">About Us</a>
   </div>
 
-  <a href="#cta" class="btn primary">Plan My Trip</a>
+  <a href="#works" class="btn primary">Plan My Trip</a>
 </nav>
 
 <main class="page">
@@ -2554,7 +2607,7 @@ h1{
         <li><i class="fa-brands fa-whatsapp"></i> WhatsApp Assistance</li>
       </ul>
 
-      <a href="#works" class="plan-btn">Choose Plan</a>
+      <a href="#works" class="plan-btn">Unlock Access</a>
     </div>
 
     <div class="plan-card">
@@ -2576,7 +2629,7 @@ h1{
         <li><i class="fa-brands fa-whatsapp"></i> Priority WhatsApp Support</li>
       </ul>
 
-      <a href="#works" class="plan-btn">Start Exploring</a>
+      <a href="#works" class="plan-btn">Unlock Access</a>
     </div>
 
     <div class="plan-card popular">
@@ -2653,7 +2706,7 @@ h1{
   </div>
 </section>
 
-<section class="section reveal feedback-section">
+<section class="section reveal feedback-section" id="reviews">
   <div class="feedback-head">
     <span>TRAVELER STORIES</span>
     <h2>Real Experiences,<br>Real <b>Happiness</b></h2>
@@ -2723,80 +2776,71 @@ h1{
         <img src="logo.webp" alt="Movodream">
       </div>
 
-      <p class="footer-copy">
-        © 2025 Movodream. All rights reserved
+      <p class="footer-description">
+        The definitive intelligence layer for Amritsar travelers. Built by locals,
+        powered by AI, and designed for those who demand a premium, low-crowd journey.
       </p>
+
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
 
     </div>
 
     <!-- CENTER -->
-    <div class="footer-center">
-
-      <a href="#">Home</a>
-      <a href="#experiences">Experiences</a>
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-
+    <div class="footer-center footer-column">
+      <h4>RESOURCES</h4>
+      <a href="#plans">Pricing</a>
+      <a href="#why-movodream">Travel Intelligence</a>
+      <a href="#experiences">Destinations</a>
+      <a href="#works">Plan My Trip</a>
     </div>
 
     <!-- RIGHT -->
-    <div class="footer-right">
+    <div class="footer-right footer-column">
+      <h4>GET STARTED</h4>
 
-      <div class="footer-socials">
+      <a href="#works" class="footer-cta">
+        Get Royal Access <span>→</span>
+      </a>
 
-        <a href="#">
-          <i class="fab fa-twitter"></i>
-        </a>
-
-        <a href="#">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-
-        <a href="#">
-          <i class="fab fa-instagram"></i>
-        </a>
-
-      </div>
-
-      <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
+      <p class="footer-note">
+        Built by locals, powered by AI, designed for smarter Amritsar travel.
+      </p>
 
       <!-- SITE CREDIT -->
       <div class="site-credit">
-
         <div class="site-credit-inner">
-
-          <a
-            href="https://fabulousmedia.in/"
-            target="_blank"
-          >
-            <img
-              src="fabulous-logo.png"
-              alt="FabulousMedia"
-            />
+          <a href="https://fabulousmedia.in/" target="_blank">
+            <img src="fabulous-logo.png" alt="FabulousMedia" />
           </a>
 
           <span class="divider"></span>
 
-          <a
-            href="https://gocommercially.com/"
-            target="_blank"
-          >
-            <img
-              src="go.svg"
-              alt="GoCommercially"
-            />
+          <a href="https://gocommercially.com/" target="_blank">
+            <img src="go.svg" alt="GoCommercially" />
           </a>
-
         </div>
-
       </div>
-
     </div>
 
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Refund Policy</a>
+      <a href="#">Contact</a>
+      <a href="#">Support</a>
+    </div>
+
+    <p class="footer-copy">
+      © 2026 MOVODREAM · MADE FOR THE MODERN EXPLORER
+    </p>
   </div>
 
 </footer>
